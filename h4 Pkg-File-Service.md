@@ -2,6 +2,7 @@
 
 ## Tiivistelmä
 
+Saltilla voidaan automatisoida SSH-palvelimen portin vaihtaminen käyttämällä pkg–file–service -mallia. (Tero Karvinen 2018)
 
 
 ### SSH-portin lisääminen käsin
