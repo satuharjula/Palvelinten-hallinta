@@ -62,7 +62,6 @@ Kirjauduin minionille komennolla vagrant ssh t002 ja testasin yhteyttä komennol
 <img width="561" height="43" alt="image" src="https://github.com/user-attachments/assets/57381dd8-f625-47aa-b351-e9e445239d77" />
 
 Lähteet:
-
 Karvinen, T. 3.4.2018. Pkg-File-Serice – Control Daemons with Sal - Change SSH Server Port. Luettavissa: https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh.
 
 Tavio, A. 2025. H4 Pkg-file-service. Luettavissa: https://aapotavio.com/configuration-management-systems/h4-pkg-file-service/. 
