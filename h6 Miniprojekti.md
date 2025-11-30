@@ -11,6 +11,7 @@ Loimme ensimmäiseksi rakenteen komennolla "sudo mkdir -p /srv/salt/web/files" j
 
 Määritimme sitten mitä stateja ajetaan top.sls-tiedostossa komennolla "sudo nano /srv/salt/top.sls" ja kirjoitimme sinne seuraavan:
 
+```yaml
 base:
 
 '*':
