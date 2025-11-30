@@ -17,6 +17,7 @@ base:
 '*':
 
     - web
+``` 
 
 Tämän jälkeen avasimme init.sls-tiedoston komennolla "sudo nano /srv/salt/web/init.sls". Tiedostoon sisällytimme ohjeet Nginxin asentamiseen ja HTML-sivun paikoilleen laittamisen. (Salt Project, 2025) Kuvassa näkyy tiedoston sisältö:
 
