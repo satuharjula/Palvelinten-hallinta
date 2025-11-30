@@ -37,7 +37,7 @@ Lopuksi tarkistimme, että teksti näkyy http://localhost verkkoselaimessa.
 
 <img width="543" height="303" alt="image" src="https://github.com/user-attachments/assets/af8dd534-9686-4cbf-ba9c-4fa8553beb7c" />
 
-Kaikki toimii, joten projekti sai päätöksen!
+HTML-sivu latautui, joten projekti sai päätöksen!
 
 
 
