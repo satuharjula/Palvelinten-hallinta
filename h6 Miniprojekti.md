@@ -9,8 +9,8 @@ Teimme projektin vanhalle virtuaalikoneelle, koska emme saaneet uutta toimimaan.
 Loimme ensimmäiseksi rakenteen komennolla "sudo mkdir -p /srv/salt/web/files" ja siirryimme hakemistoon cd:llä.
 
 Määritimme sitten mitä stateja ajetaan top.sls-tiedostossa komennolla "sudo nano /srv/salt/top.sls" ja kirjoitimme sinne seuraavan:
-base:
 
+base:
 '*':
     - web
 
