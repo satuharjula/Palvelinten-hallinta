@@ -11,7 +11,9 @@ Loimme ensimmäiseksi rakenteen komennolla "sudo mkdir -p /srv/salt/web/files" j
 Määritimme sitten mitä stateja ajetaan top.sls-tiedostossa komennolla "sudo nano /srv/salt/top.sls" ja kirjoitimme sinne seuraavan:
 
 base:
+
 '*':
+
     - web
 
 Tämän jälkeen avasimme init.sls-tiedoston komennolla "sudo nano /srv/salt/web/init.sls". Tiedostoon sisällytimme ohjeet Nginxin asentamiseen ja HTML-sivun paikoilleen laittamisen. (Salt Project, 2025) Kuvassa näkyy tiedoston sisältö:
