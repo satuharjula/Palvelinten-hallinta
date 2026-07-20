@@ -1,125 +1,126 @@
-# h1 - Viisikko
+# h1 - The five  
 
 
-## Tiivistelmä
-### Install Salt on Debian 13 Trixie:
+## Summary  
+### Install Salt on Debian 13 Trixie:  
 
-Saltin asentaminen Debian 13:een vaatii APT-paketin arkiston, jonka kautta Saltin paketit voidaan hakea ja varmentaa. Arkisto sisältää PGP-avaimen, jolla varmennetaan pakettien allekirjoitukset, sekä sources.list-tiedoston, josta julkinen avain löytyy. (Karvinen 20.10.2025)
+Installing Salt on Debian 13 requires an APT package repository, through which Salt's packages can be fetched and verified. The repository includes a PGP key used to verify the packages' signatures, as well as a sources.list file where the public key is located. (Karvinen 20.10.2025)  
 
-###	Run Salt Command Locally
+###	Run Salt Command Locally  
 
-Saltia käytetään usean slave-koneen hallintaan. Salt-komentoja ajetaan paikallisesti, jolloin tulos nähdään heti. Tärkeimmät tilafunktiot ovat file, service, pkg, cmd ja user. (Karvinen 28.10.2021)
+Salt is used to manage multiple slave machines. Salt commands are run locally, allowing the result to be seen immediately. The most important state functions are file, service, pkg, cmd, and user. (Karvinen 28.10.2021)  
 
-###	Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux
+###	Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux  
 
-Slave-koneita voi hallita palomuurin tai NAT:in takaa, myös tuntemattomassa osoitteessa. Master-koneella, jolla slave-koneita hallitaan, tarvitsee olla julkinen palvelin sekä osoite. Eri slave-koneille lisätään eri id, jotta jokainen tunnistetaan yksilöllisesti. Lopuksi master-koneella hyväksytään slave-avain. (Karvinen 28.3.2018)
+Slave machines can be managed even from behind a firewall or NAT, or from an unknown address. The master machine, which manages the slave machines, needs to have a public server and address. Each slave machine is assigned a different ID so that each one can be identified individually. Finally, the slave's key is accepted on the master machine. (Karvinen 28.3.2018)  
 
-###	Raportin kirjoittaminen
+###	Writing the report  
 
-•	Toistettavuus 
+•	Reproducibility  
 
-    Kuka tahansa voi toistaa työn samassa ympäristössä samalla lopputuloksella.
+    Anyone should be able to repeat the work in the same environment and achieve the same      result.  
 
-•	Täsmällisyys
+•	Precision  
 
-	Työvaiheet tulee kertoa tarkasti, millä komennolla ja milloin. 
-	Onnistumiset ja epäonnistumiset tulee kirjata ylös.
-    Raportin kirjoitus menneessä aikamuodossa.
+	The work steps should be described in detail, which command was used and when.  
+	Successes and failures should be documented.  
+	The report should be written in the past tense.  
 
-•	Helppulukuisuus
+•	Readability  
 
-    Väliotsikoiden käyttö
-    Huolellinen kieli
-    Halutessaan myös tiivistelmä raportin alkuun
+    Use of subheadings  
+    Clear language  
+    A summary at the beginning of the report, if desired  
 
-•	Lähdeviitteet
+•	Source references  
 
-•	Plagiointi, sepittäminen ja luvaton kuvien kopiointi ehdottomasti kielletty. (Karvinen 4.6.2006)
+•	Plagiarism, fabrication, and unauthorized copying of images are strictly forbidden. (Karvinen 4.6.2006)  
 
-## Saltin asennus Debian 13:lle
-Tehtävässä mukailtu (Karvinen 2025) ohjeita.
+## Installing Salt on Debian 13  
+This task was based on the instructions by Karvinen (2025).  
 
-### PGP-julkisen avaimen ja salt sources -tiedoston lataus
-Aloitin tehtävän asentamalla wget:in, jotta saan ladattua tarvittavat tiedostot. 
+### Downloading the PGP Public Key and the Salt Sources File  
+I started the task by installing wget, so that I could download the necessary files.  
 
-Latasin wget:in komennoilla sudo apt-get update ja sudo apt-get install wget.
+I installed wget with the commands sudo apt-get update and sudo apt-get install wget.  
 
-Jonka jälkeen loin uuden kansion komennolla mkdir saltrepo/ ja siirryin siihen komennolla cd saltrepo/.
+After that, I created a new folder with the command mkdir saltrepo/ and moved into it with cd saltrepo/.  
 
-Seuraavaksi latasin PGP-julkisen avaimen komennolla: 
+Next, I downloaded the PGP public key with the command:  
 
 wget https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public 
 
-ja salt.sources-tiedoston komennolla:
+and the salt.sources file with the command:  
 
-wget https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources. (SALT PROJECT 2025)
+wget https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources. (SALT PROJECT 2025)  
 
-### Julkisen avaimen ja salt.sources -tiedoston kopiointi
-Seuraavaksi kopioin julkisen avaimen komennolla: sudo cp public /etc/apt/keyrings/salt-archive-keyring.pgp
+### Copying the Public Key and the salt.sources File  
+Next, I copied the public key with the command: sudo cp public /etc/apt/keyrings/salt-archive-keyring.pgp  
 
-sekä salt.sources -tiedoston komennolla:
+and the salt.sources file with the command:  
 
-sudo cp salt.sources /etc/apt/sources.list.d/. 
+sudo cp salt.sources /etc/apt/sources.list.d/.  
 
-Nämä siksi, että Saltin paketit voidaan hakea ja varmentaa automaattisesti.
+This was done so that Salt's packages could be fetched and verified automatically.  
 
-### Salt -asennus
-Tämän jälkeen päivitin komennolla:
+### Installing Salt  
+After that, I updated with the command:  
 
 sudo apt-get update
 
-ja asensin Saltin komennolla:
+and installed Salt with the command:  
 
 sudo apt-get install salt-minion salt-master. 
 
-Seuraavaksi tarkistin komennolla sudo salt-call --version, että asennus onnistui. 
+Next, I checked with the command sudo salt-call --version that the installation was successful.  
 
 <img width="608" height="73" alt="image" src="https://github.com/user-attachments/assets/7ec99b4f-dc8e-4a28-a55c-276724584c5d" />
 
-## Saltin viisi tärkeintä tilafunktiota
+## The Five Most Important Salt State Functions  
 
-### pkg-tilafunktio
+### The pkg State Function  
 
-Ajoin komennon sudo salt-call –local -l info state.single pkg.installed tree. (Karvinen 28.10.2021) Tuloksessa True ja Changes-kohdassa näkyi, että paketti tree asennettiin. Succeeded näytti 1 (changed=1), eli toimenpide onnistui.
+I ran the command sudo salt-call –local -l info state.single pkg.installed tree. (Karvinen 28.10.2021)The result showed True, and the Changes section showed that the tree package was installed. Succeeded showed 1 (changed=1), meaning the operation was successful.
 <img width="541" height="277" alt="image" src="https://github.com/user-attachments/assets/54ee41e7-fc1d-40c9-8912-8ee8adc2af98" />
 
-### file-tilafunktio
+### The file State Function  
 
-Ajoin komennon sudo salt-call - -local state.single file.managed /tmp/kokeilu, joka varmisti, että tiedosto on olemassa. (Karvinen 28.10.2021) Tuloksessa True ja Changes-kohdassa näkyi, että tiedosto /tmp/kokeilu luotiin. Succeeded näytti 1 (changed=1), eli toimenpide teki muutoksen ja se onnistui.
+I ran the command sudo salt-call - -local state.single file.managed /tmp/kokeilu, which ensured that the file exists. (Karvinen 28.10.2021) The result showed True, and the Changes section showed that the file /tmp/kokeilu was created. Succeeded showed 1 (changed=1), meaning the operation made a change and was successful.  
 
 <img width="544" height="377" alt="image" src="https://github.com/user-attachments/assets/47bb9ea0-4836-4b05-acf2-bc269f51f71d" />
 
-### service-tilafunktio 
+### The service State Function  
 
-Ajoin komennon sudo salt-call --local -l info state.single service.running apache2 enable=True. (Karvinen 28.10.2021) Tulosteessa oli Result: False ja ”The named sarvice apache2 is not available”. Komento ei toiminut, koska apache2 ei ole asennettu virtuaalikoneelleni.
+I ran the command sudo salt-call --local -l info state.single service.running apache2 enable=True. (Karvinen 28.10.2021) The output showed Result: False and ”The named sarvice apache2 is not available”. The command did not work because apache2 is not installed on my virtual machine.  
 <img width="609" height="228" alt="image" src="https://github.com/user-attachments/assets/756818b0-533c-46af-96f9-ff11f6afb642" />
 
-### user-tilafunktio
-Ajoin komennon sudo salt-call --local -l info state.single user.present satu. (Karvinen 28.10.2021) Tuloksessa lukee ”User satu is present and up to date”, eli käyttäjä on jo olemassa, joten Salt ei tehnyt muutoksia ja siksi Changes -kohta on tyhjä. 
+### The user State Function  
+
+I ran the command sudo salt-call --local -l info state.single user.present satu. (Karvinen 28.10.2021) The result read ”User satu is present and up to date”,meaning the user already existed, so Salt did not make any changes, and the Changes section was therefore empty.   
 <img width="547" height="188" alt="image" src="https://github.com/user-attachments/assets/b43e9c2a-2cd8-4843-b9b5-d51a10fbbd84" />
 
-### cmd-tilafunktio
+### The cmd State Function  
 
-Ajoin komennon sudo salt-call --local -l info state.single cmd.run 'touch /tmp/test' creates="/tmp/test". (Karvinen 28.10.2021)Tuloksessa “Result: True” kertoi, että ajo onnistui. “Changes” näytti, että komento ajettiin ja tiedosto /tmp/test luotiin.
-<img width="529" height="264" alt="image" src="https://github.com/user-attachments/assets/cadbe002-c69c-4094-aada-f12b389e56ce" />
+I ran the command sudo salt-call --local -l info state.single cmd.run 'touch /tmp/test' creates="/tmp/test". (Karvinen 28.10.2021) The result “Result: True” indicated that the run was successful. “Changes” showed that the command was executed and the file /tmp/test was created.  
+<img width="529" height="264" alt="image" src="https://github.com/user-attachments/assets/cadbe002-c69c-4094-aada-f12b389e56ce" />  
 
-## Idempotentti
+## Idempotent  
 
-Ajoin sudo salt-call --local -l info state.single user.present satu kahdesti. (Karvinen 2021) Ensimmäinen ajo varmisti käyttäjän, toisella ajolla Salt ilmoitti “User satu is present and up to date” ja Changes oli tyhjä. Tämä osoittaa idempotenssin, eli sama tila ei tee turhaa muutosta, kun se on jo oikein.
+I ran sudo salt-call --local -l info state.single user.present satu twice. (Karvinen 2021) The first run verified the user, and on the second run Salt reported “User satu is present and up to date” with Changes empty. This demonstrates idempotency — meaning the same state does not make an unnecessary change once it is already correct.
 
 <img width="547" height="188" alt="image" src="https://github.com/user-attachments/assets/2bcd15bb-d51a-473f-ad41-7627eac733be" />
 
-## Lähteet
+## Sources
 
-Karvinen, T. 22.1.2021. Install Debian on Virtualbox – Updated 2024. Luettavissa: https://terokarvinen.com/2021/install-debian-on-virtualbox/. Luettu: 27.10.2025. 
+Karvinen, T. 22 January 2021. Install Debian on Virtualbox – Updated 2024. URL: https://terokarvinen.com/2021/install-debian-on-virtualbox/. Accessed: 27 October 2025. 
 
-Karvinen, T. 20.10.2025. Install Salt on Debian 13 Trixie. Luettavissa: https://terokarvinen.com/install-salt-on-debian-13-trixie/. Luettu: 26.20.2025. 
+Karvinen, T. 20 October 2025. Install Salt on Debian 13 Trixie. URL: https://terokarvinen.com/install-salt-on-debian-13-trixie/. Accessed: 26 October 2025. 
 
-Karvinen, T. 28.10.2021. Run Salt Command Locally. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/. Luettu: 26.10.2025.
+Karvinen, T. 28 October 2021. Run Salt Command Locally. URL: https://terokarvinen.com/2021/salt-run-command-locally/. Accessed: 26 October 2025.
 
-Karvinen, T. 28.3.2018. Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. Luettavissa: https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/. Luettu: 26.10.2025. 
+Karvinen, T. 28 March 2018. Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. URL: https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/. Accessed: 26 October 2025. 
 
-SALT PROJECT 2025. Linux (DEB). Luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html. Luettu: 24.10.2025.
+SALT PROJECT 2025. Linux (DEB). URL: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html. Accessed: 24 October 2025.
 
 
 
