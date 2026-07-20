@@ -57,9 +57,7 @@ wget https://github.com/saltstack/salt-install-guide/releases/latest/download/sa
 ### Copying the Public Key and the salt.sources File  
 Next, I copied the public key with the command: sudo cp public /etc/apt/keyrings/salt-archive-keyring.pgp  
 
-and the salt.sources file with the command:  
-
-sudo cp salt.sources /etc/apt/sources.list.d/.  
+and the salt.sources file with the command:  sudo cp salt.sources /etc/apt/sources.list.d/.  
 
 This was done so that Salt's packages could be fetched and verified automatically.  
 
