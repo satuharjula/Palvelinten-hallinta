@@ -50,7 +50,7 @@ Next, I downloaded the PGP public key with the command:
 
 wget https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public 
 
-and the salt.sources file with the command:  
+And the salt.sources file with the command:  
 
 wget https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources. (SALT PROJECT 2025)  
 
