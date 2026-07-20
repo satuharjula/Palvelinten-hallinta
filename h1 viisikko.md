@@ -66,7 +66,7 @@ After that, I updated with the command:
 
 sudo apt-get update
 
-and installed Salt with the command:  
+And installed Salt with the command:  
 
 sudo apt-get install salt-minion salt-master. 
 
@@ -83,18 +83,22 @@ I ran the command sudo salt-call –local -l info state.single pkg.installed tre
 
 ### The file State Function  
 
-I ran the command sudo salt-call - -local state.single file.managed /tmp/kokeilu, which ensured that the file exists. (Karvinen 28.10.2021) The result showed True, and the Changes section showed that the file /tmp/kokeilu was created. Succeeded showed 1 (changed=1), meaning the operation made a change and was successful.  
+I ran the command sudo salt-call - -local state.single file.managed /tmp/kokeilu, which ensured that the file exists. (Karvinen 28.10.2021) 
+The result showed True, and the Changes section showed that the file /tmp/kokeilu was created. Succeeded showed 1 (changed=1), meaning the operation made a change and was successful.  
 
 <img width="544" height="377" alt="image" src="https://github.com/user-attachments/assets/47bb9ea0-4836-4b05-acf2-bc269f51f71d" />
 
 ### The service State Function  
 
-I ran the command sudo salt-call --local -l info state.single service.running apache2 enable=True. (Karvinen 28.10.2021) The output showed Result: False and ”The named sarvice apache2 is not available”. The command did not work because apache2 is not installed on my virtual machine.  
+I ran the command sudo salt-call --local -l info state.single service.running apache2 enable=True. (Karvinen 28.10.2021)  
+The output showed Result: False and ”The named sarvice apache2 is not available”.  
+The command did not work because apache2 is not installed on my virtual machine.  
 <img width="609" height="228" alt="image" src="https://github.com/user-attachments/assets/756818b0-533c-46af-96f9-ff11f6afb642" />
 
 ### The user State Function  
 
-I ran the command sudo salt-call --local -l info state.single user.present satu. (Karvinen 28.10.2021) The result read ”User satu is present and up to date”,meaning the user already existed, so Salt did not make any changes, and the Changes section was therefore empty.   
+I ran the command sudo salt-call --local -l info state.single user.present satu. (Karvinen 28.10.2021) 
+The result read ”User satu is present and up to date”,meaning the user already existed, so Salt did not make any changes, and the Changes section was therefore empty.   
 <img width="547" height="188" alt="image" src="https://github.com/user-attachments/assets/b43e9c2a-2cd8-4843-b9b5-d51a10fbbd84" />
 
 ### The cmd State Function  
@@ -104,7 +108,8 @@ I ran the command sudo salt-call --local -l info state.single cmd.run 'touch /tm
 
 ## Idempotent  
 
-I ran sudo salt-call --local -l info state.single user.present satu twice. (Karvinen 2021) The first run verified the user, and on the second run Salt reported “User satu is present and up to date” with Changes empty. This demonstrates idempotency — meaning the same state does not make an unnecessary change once it is already correct.
+I ran sudo salt-call --local -l info state.single user.present satu twice. (Karvinen 2021) 
+The first run verified the user, and on the second run Salt reported “User satu is present and up to date” with Changes empty. This demonstrates idempotency, meaning the same state does not make an unnecessary change once it is already correct.  
 
 <img width="547" height="188" alt="image" src="https://github.com/user-attachments/assets/2bcd15bb-d51a-473f-ad41-7627eac733be" />
 
