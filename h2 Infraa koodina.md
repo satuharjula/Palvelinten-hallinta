@@ -28,12 +28,15 @@ I started by fetching package updates with the command sudo apt-get update. Afte
 <img width="559" height="97" alt="image" src="https://github.com/user-attachments/assets/01549349-bcea-4830-8781-e872af682a8e" />
 
 Next, I ran the command sudoedit init.sls, which opened the Micro editor that I had just installed. I added the following content to the editor:
+
 <img width="408" height="314" alt="image" src="https://github.com/user-attachments/assets/65cd75ec-87b9-48bc-a290-c5775b2f7c01" />
 
 I ran the command sudo salt-call --local state.apply hello, which printed a summary as shown in the image:
+
 <img width="637" height="369" alt="image" src="https://github.com/user-attachments/assets/c881354f-0780-474e-b717-2ce62e2c5b22" />
 
 The output indicated that the file /tmp/hellosatu had been created successfully, since it stated "file /tmp/hellosatu created." I also verified with the command ls /tmp/hellosatu that the file actually existed. When the same command is run again, "changed (1)" disappears, since nothing needs to be changed anymore. This shows that Salt is working correctly and that the state is idempotent.
+
 <img width="547" height="39" alt="image" src="https://github.com/user-attachments/assets/8c050f5e-aa57-41b9-ae31-908b29dff572" />
 <img width="547" height="39" alt="image" src="https://github.com/user-attachments/assets/9aabf67f-8d4b-4837-a263-0953e7e1612f" />
 
