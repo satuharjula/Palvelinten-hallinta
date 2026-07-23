@@ -55,10 +55,13 @@ Next, I ran the command sudo salt ’*’ state.apply sshdemon.
 <img width="577" height="286" alt="image" src="https://github.com/user-attachments/assets/4c1755e2-6fc8-40eb-aaa5-9e8fa5495b37" />
 
 
+
 <img width="421" height="146" alt="image" src="https://github.com/user-attachments/assets/70a0991f-1eee-4dd4-a303-1a2b799b43fc" />
 
 
+
 <img width="351" height="349" alt="image" src="https://github.com/user-attachments/assets/999fe60f-c9ba-4a0c-b568-628002225286" />
+
 
 I logged into the minion with the command vagrant ssh t002 and tested the connection with the command nc -vz localhost 1234.
 
