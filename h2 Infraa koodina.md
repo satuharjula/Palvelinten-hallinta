@@ -69,9 +69,9 @@ I started by creating folders for each of the five state functions with the comm
 I moved into the hellopkg directory with the command cd /srv/salt/hellopkg, after which I ran the command sudoedit init.sls, which moved me into the editor.
 <img width="491" height="208" alt="image" src="https://github.com/user-attachments/assets/576d5e78-623a-49cb-adcf-c2d123da68ec" /> (Salt project 2025)
 
-Seuraavaksi ajoin komennon sudo salt-call --local state.apply hellopkg
+Next, I ran the command sudo salt-call --local state.apply hellopkg.
 <img width="635" height="326" alt="image" src="https://github.com/user-attachments/assets/be810d9d-2b47-427d-b04c-d15e98710153" />
-Salt tarkisti, onko htop jo asennettu. Ei ollut, joten asensi sen.
+Salt checked whether htop was already installed. It was not, so it installed it.
 
 ### file state function:
 
